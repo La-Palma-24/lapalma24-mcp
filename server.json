@@ -1,0 +1,195 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-16/server.schema.json",
+  "name": "net.la-palma24/vacation-rentals",
+  "displayName": "La Palma 24 - Vacation Rentals",
+  "description": "Search and discover vacation rental properties across La Palma, Canary Islands. Query real-time availability, calculate prices, explore properties by location, and get detailed information about accommodations.",
+  "version": "1.0.0",
+  "homepage": "https://www.la-palma24.net",
+  "repository": "https://github.com/La-Palma-24/lapalma24-mcp",
+  "license": "MIT",
+  "author": {
+    "name": "TuneraSoft - La Palma 24",
+    "url": "https://www.la-palma24.net"
+  },
+  "categories": [
+    "travel",
+    "booking",
+    "real-estate",
+    "vacation-rentals"
+  ],
+  "keywords": [
+    "vacation-rentals",
+    "canary-islands",
+    "la-palma",
+    "property-search",
+    "booking",
+    "accommodation",
+    "holiday-homes",
+    "spain",
+    "travel"
+  ],
+  "transports": {
+    "http": {
+      "url": "https://mcp.la-palma24.net",
+      "methods": ["GET", "POST"]
+    }
+  },
+  "capabilities": {
+    "tools": true,
+    "resources": false,
+    "prompts": false
+  },
+  "tools": [
+    {
+      "name": "buscar_disponibilidad",
+      "description": "Search for available vacation rental properties in La Palma for specific dates. Returns properties with real-time availability, pricing, and location details.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "fecha_llegada": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "description": "Check-in date in YYYY-MM-DD format (e.g., 2024-06-15)"
+          },
+          "fecha_salida": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "description": "Check-out date in YYYY-MM-DD format (e.g., 2024-06-22)"
+          },
+          "num_personas": {
+            "type": "number",
+            "minimum": 1,
+            "description": "Number of guests (default: 2)"
+          },
+          "municipio": {
+            "type": "string",
+            "description": "Filter by municipality (e.g., Santa Cruz de La Palma, Los Llanos de Aridane)"
+          },
+          "barrio": {
+            "type": "string",
+            "description": "Filter by neighborhood/zone (e.g., Centro, San Telmo, El Charco)"
+          }
+        },
+        "required": ["fecha_llegada", "fecha_salida"]
+      }
+    },
+    {
+      "name": "calcular_precio_estancia",
+      "description": "Calculate the total price for a stay including seasonal rates, applicable discounts, number of nights and guests.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id_casa": {
+            "type": "string",
+            "description": "Property ID"
+          },
+          "fecha_llegada": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "description": "Check-in date in YYYY-MM-DD format"
+          },
+          "fecha_salida": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "description": "Check-out date in YYYY-MM-DD format"
+          },
+          "num_personas": {
+            "type": "number",
+            "minimum": 1,
+            "description": "Number of guests (default: 2)"
+          }
+        },
+        "required": ["id_casa", "fecha_llegada", "fecha_salida"]
+      }
+    },
+    {
+      "name": "obtener_detalles_propiedad",
+      "description": "Get complete information about a specific property: features, amenities, location, pricing, photos, and descriptions in the requested language.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id_casa": {
+            "type": "string",
+            "description": "Property ID to query"
+          },
+          "idioma": {
+            "type": "string",
+            "enum": ["es", "en", "de"],
+            "default": "es",
+            "description": "Language for descriptions: es (Spanish), en (English), de (German)"
+          }
+        },
+        "required": ["id_casa"]
+      }
+    },
+    {
+      "name": "listar_propiedades",
+      "description": "List all available vacation rental properties with optional filters by location, capacity, and features. Includes pagination.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "municipio": {
+            "type": "string",
+            "description": "Filter by municipality"
+          },
+          "barrio": {
+            "type": "string",
+            "description": "Filter by neighborhood/zone"
+          },
+          "personas_max": {
+            "type": "number",
+            "minimum": 1,
+            "description": "Minimum guest capacity"
+          },
+          "dormitorios": {
+            "type": "number",
+            "minimum": 1,
+            "description": "Number of bedrooms"
+          },
+          "limit": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 50,
+            "description": "Maximum number of results (default: 50)"
+          },
+          "offset": {
+            "type": "number",
+            "minimum": 0,
+            "default": 0,
+            "description": "Offset for pagination (default: 0)"
+          }
+        }
+      }
+    },
+    {
+      "name": "listar_municipios",
+      "description": "Get the complete list of available municipalities in La Palma where properties are located. Useful for knowing which locations can be filtered."
+    },
+    {
+      "name": "listar_barrios",
+      "description": "Get the list of available neighborhoods/zones, optionally filtered by municipality. Useful for more specific location searches.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "municipio": {
+            "type": "string",
+            "description": "Filter neighborhoods by municipality (e.g., Santa Cruz de La Palma)"
+          }
+        }
+      }
+    }
+  ],
+  "authentication": {
+    "type": "none",
+    "rateLimit": {
+      "requests": 100,
+      "period": "hour",
+      "note": "100 requests per hour per IP address"
+    }
+  },
+  "support": {
+    "email": "info@la-palma24.net",
+    "url": "https://www.la-palma24.net/contact"
+  }
+}
