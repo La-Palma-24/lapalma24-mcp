@@ -1,26 +1,26 @@
-# La Palma 24 - MCP Server for Vacation Rentals
+# MCP Server for Vacation Rentals
 
 **Official Model Context Protocol (MCP) server for La Palma 24** - Search and discover vacation rental properties across La Palma, Canary Islands.
 
 [![MCP Registry](https://img.shields.io/badge/MCP-Registry-blue)](https://registry.modelcontextprotocol.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## 🌴 About
+## About
 
 La Palma 24 has been connecting travelers with unique vacation rentals in La Palma, Canary Islands since 2002. This MCP server enables AI assistants like Claude, ChatGPT, and others to help users discover and book the perfect accommodation through natural conversation.
 
 **Live Server:** `https://mcp.la-palma24.net`
 
-## ✨ Features
+##  Features
 
-- 🏠 **Real-time availability** search across 70,000+ monthly listings
-- 💰 **Dynamic pricing** with seasonal rates and discounts
-- 📍 **Location-based filtering** by municipality and neighborhood
-- 🌍 **Multilingual support** (Spanish, English, German)
-- 🔍 **Detailed property information** with photos and amenities
-- ⚡ **Fast responses** with optimized queries
+-  **Real-time availability** search across 70,000+ monthly listings
+-  **Dynamic pricing** with seasonal rates and discounts
+-  **Location-based filtering** by municipality and neighborhood
+-  **Multilingual support** (Spanish, English, German)
+-  **Detailed property information** with photos and amenities
+-  **Fast responses** with optimized queries
 
-## 🛠️ Available Tools
+##  Available Tools
 
 ### `buscar_disponibilidad`
 Search for available properties for specific dates.
@@ -117,7 +117,7 @@ Add to `.vscode/mcp.json`:
 3. Enter MCP server URL: `https://mcp.la-palma24.net`
 4. Save and enable
 
-## 📖 Example Queries
+##  Example Queries
 
 Once connected, you can ask your AI assistant:
 
@@ -127,7 +127,7 @@ Once connected, you can ask your AI assistant:
 - *"Calculate the price for property X from June 15 to June 22"*
 - *"What are the best areas to stay in La Palma for stargazing?"*
 
-## 🌍 Locations Covered
+##  Locations Covered
 
 La Palma 24 covers all 14 municipalities of La Palma:
 
@@ -146,7 +146,7 @@ La Palma 24 covers all 14 municipalities of La Palma:
 - Villa de Mazo
 - Fuencaliente de La Palma
 
-## 🔒 Rate Limits & Security
+##  Rate Limits & Security
 
 - **Free tier:** 100 requests per hour per IP
 - **Authentication:** None required (public read-only access)
@@ -155,7 +155,7 @@ La Palma 24 covers all 14 municipalities of La Palma:
 
 For higher limits or commercial integrations, contact: info@la-palma24.net
 
-## 🏗️ Technical Details
+##  Technical Details
 
 - **Protocol:** MCP (Model Context Protocol)
 - **Transport:** HTTP/HTTPS
@@ -163,25 +163,25 @@ For higher limits or commercial integrations, contact: info@la-palma24.net
 - **Hosted:** Canary Islands, Spain
 - **Uptime:** 99.9% SLA
 
-## 📝 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) file for details.
 
-## 🤝 Support
+##  Support
 
 - **Website:** https://www.la-palma24.net
 - **Email:** info@la-palma24.net
 - **Issues:** https://github.com/La-Palma-24/lapalma24-mcp/issues
 
-## 🌟 About La Palma
+##  About La Palma
 
 La Palma, the "Isla Bonita" (Beautiful Island), is one of the Canary Islands' best-kept secrets. Known for its:
 
-- 🌌 **World-class stargazing** (UNESCO Starlight Reserve)
-- 🌋 **Volcanic landscapes** and dramatic coastlines
-- 🌲 **Laurel forests** (UNESCO World Heritage Site)
-- 🏖️ **Black sand beaches** and natural pools
-- 🥾 **Hiking trails** through diverse microclimates
+-  **World-class stargazing** (UNESCO Starlight Reserve)
+-  **Volcanic landscapes** and dramatic coastlines
+-  **Laurel forests** (UNESCO World Heritage Site)
+-  **Black sand beaches** and natural pools
+-  **Hiking trails** through diverse microclimates
 
 ---
 
