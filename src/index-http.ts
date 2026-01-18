@@ -11,7 +11,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const API_BASE_URL = process.env.API_BASE_URL || 'https://www.la-palma24.net';
+const API_BASE_URL = process.env.API_BASE_URL || 'https://admin.la-palma24.net';
 const API_KEY = process.env.API_KEY || 'demo_key_12345';
 const PORT = process.env.PORT || 3000;
 
