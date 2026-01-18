@@ -80,7 +80,7 @@ Get list of neighborhoods, optionally filtered by municipality.
 }
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Using with Claude Desktop
 
